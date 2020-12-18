@@ -1,0 +1,278 @@
+<!-- 
+		Rizkina Hayyuni Putri
+		TI-2D 
+-->
+
+<html>
+<head>
+	<title>CART</title>
+	<link rel="stylesheet" type="text/css" href="style_cart.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">			
+			<h1>Sweety n Side</h1>
+        </div>
+		<div class="menu">
+			<div class="list">
+				<ul>
+					<li><a href="utama.html">Home</a></li>
+					<li><a href="cart.html"><b>Cart</b></a></li>
+					<li><a href="about.html">About Us</a></li>		
+				</ul>
+			</div>
+			<div class="account">
+				<a href="biodata.html"><img src="img/account.png"></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="badan">
+			<div class="content">
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td><input id="id" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Nama</td>
+                        <td><input id="nama" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <p><input type='radio' name='status' value='Member' onclick="tampil_hasil(this.value)"/>Member</p>
+                            <p><input type='radio' name='status' value='Non-Member' onclick="tampil_hasil(this.value)"/>Non-Member</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Menu</td>
+                        <td>
+                            <select id="menu">
+                                <option value="Original Dessert Box">Original Dessert Box</option>
+                                <option value="Redfelvet Dessert Box">Redfelvet Dessert Box</option>
+                                <option value="Cheese Dessert Box">Cheese Dessert Box</option>
+                                <option value="Milo Dessert Box">Milo Dessert Box</option>
+                                <option value="Biscoff Milky">Biscoff Milky</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah</td>
+                        <td><input id="jumlah" type="number"></td>
+                    </tr>
+                </table>
+                <button onclick="clear()">Pesanan Baru</button>
+                <button onclick="tambah()">Tambah Pesanan</button>
+                <button onclick="hitung_total()">Hitung<br>Total</button>
+            </div>
+            <div class="sidebar">
+                <table border="1">
+                    <tr>
+                        <th>Menu</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
+                        <th>Sub Total</th>
+                    </tr>
+                    <tr>
+                        <td><input id="menuke1" type="text"></td>
+                        <td><input id="jumlahke1" type="text"></td>
+                        <td><input id="hargake1" type="text"></td>
+                        <td><input id="subtotalke1" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="menuke2" type="text"></td>
+                        <td><input id="jumlahke2" type="text"></td>
+                        <td><input id="hargake2" type="text"></td>
+                        <td><input id="subtotalke2" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="menuke3" type="text"></td>
+                        <td><input id="jumlahke3" type="text"></td>
+                        <td><input id="hargake3" type="text"></td>
+                        <td><input id="subtotalke3" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="menuke4" type="text"></td>
+                        <td><input id="jumlahke4" type="text"></td>
+                        <td><input id="hargake4" type="text"></td>
+                        <td><input id="subtotalke4" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="menuke5" type="text"></td>
+                        <td><input id="jumlahke5" type="text"></td>
+                        <td><input id="hargake5" type="text"></td>
+                        <td><input id="subtotalke5" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><b>SUBTOTAL</b></td>
+                        <td><input id="subtotal" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><b>POTONGAN HARGA</b></td>
+                        <td><input id="potongan" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><b>TOTAL</b></td>
+                        <td><input id="total" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><b>BAYAR</b></td>
+                        <td><input id="bayar" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><button onclick="hitungKembali()">Hitung Kembalian</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><b>KEMBALI</b></td>
+                        <td><input id="kembali" type="text"></td>
+                    </tr>
+                </table>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="footer">
+			<p>&copy; 2020 Rizkina Hayyuni Putri with &hearts;</p>
+        </div>
+        
+        <script>
+            var harga = [35000,30000,40000,35000,20000];
+            var menu = [];
+            var harga_menu = [];
+            var jumlah = [];
+            var sub_total = [];
+            var status;
+            var pesanan = 0;
+            var subTotal = 0;
+            var potongan = 0;
+            var total = 0;
+            var bayar = 0;
+            var kembali = 0;
+
+            function tambah() {
+                tambah_menu();
+                hitungSubTotal();  
+                kosongi();              
+            }
+            function tambah_menu() {
+                var no = 0;
+                var index = 0;
+                var total = 0;
+                for (let i = 0; i < 5; i++) {    //mencari data kosong
+                    if (sub_total[i] == null) {
+                        index = i;
+                        break; 
+                    }
+                }
+                menu[index] = document.getElementById("menu").value; 
+                if (menu[index] == "Original Dessert Box") {
+                    no = 0;
+                } else if(menu[index] == "Redfelvet Dessert Box") {
+                    no = 1;
+                } else if(menu[index] == "Cheese Dessert Box") {
+                    no = 2;
+                } else if(menu[index] == "Milo Dessert Box") {
+                    no = 3;
+                } else if(menu[index] == "Biscoff Milky") {
+                    no = 4;
+                }
+                harga_menu[index] = harga[no];
+                jumlah[index] = parseInt(document.getElementById("jumlah").value) || 0;
+                sub_total[index] = harga[no] * jumlah[index];
+                if (index == 0) {
+                    document.getElementById("menuke1").value = menu[index];
+                    document.getElementById("jumlahke1").value = jumlah[index];
+                    document.getElementById("hargake1").value = harga_menu[index];
+                    document.getElementById("subtotalke1").value = sub_total[index];
+                } else if (index == 1) {
+                    document.getElementById("menuke2").value = menu[index];
+                    document.getElementById("jumlahke2").value = jumlah[index];
+                    document.getElementById("hargake2").value = harga_menu[index];
+                    document.getElementById("subtotalke2").value = sub_total[index];
+                } else if (index == 2) {
+                    document.getElementById("menuke3").value = menu[index];
+                    document.getElementById("jumlahke3").value = jumlah[index];
+                    document.getElementById("hargake3").value = harga_menu[index];
+                    document.getElementById("subtotalke3").value = sub_total[index];
+                } else if (index == 3) {
+                    document.getElementById("menuke4").value = menu[index];
+                    document.getElementById("jumlahke4").value = jumlah[index];
+                    document.getElementById("hargake4").value = harga_menu[index];
+                    document.getElementById("subtotalke4").value = sub_total[index];
+                } else if (index == 4) {
+                    document.getElementById("menuke5").value = menu[index];
+                    document.getElementById("jumlahke5").value = jumlah[index];
+                    document.getElementById("hargake5").value = harga_menu[index];
+                    document.getElementById("subtotalke5").value = sub_total[index];
+                }
+            }
+            function hitungSubTotal() {
+                subTotal = 0;
+                for (let index = 0; index < sub_total.length; index++) {
+                    subTotal += sub_total[index];                    
+                }
+                document.getElementById("subtotal").value = subTotal;
+            }
+            function tampil_hasil(stat) {
+                status = stat;
+            }
+            function cek_status() {
+                var status = document.getElementById("status");
+                document.getElementById("kembali").value = status;
+                if (status[0].checked) {
+                    document.getElementById("kembali").value = status;
+                } else {
+                    document.getElementById("kembali").value = status;
+                }
+            }
+            function hitung_total() {
+                totalPesanan()
+                var disc = 0;
+                if (status == "Member") {
+                    if (pesanan > 3) {
+                        for (let index = 0; index < jumlah.length; index++) {
+                            disc = jumlah[index] * (harga_menu[index] * 10 /100);
+                            potongan = potongan + disc;
+                        }
+                    } else if(pesanan > 1) {
+                        for (let index = 0; index < jumlah.length; index++) {
+                            disc = jumlah[index] * (harga_menu[index] * 7 /100);
+                            potongan = potongan + disc;
+                        }
+                    } else {
+                        disc = jumlah[0] * (harga_menu[0] * 5 /100);
+                        potongan = potongan + disc;
+                    }
+                } else {
+                    if (pesanan > 5) {
+                        for (let index = 0; index < jumlah.length; index++) {
+                            disc = jumlah[index] * (harga_menu[index] * 5 /100);
+                            potongan = potongan + disc;
+                        }
+                    } else if(pesanan > 2) {
+                        potongan = 5/100 * subTotal;   
+                    }
+                }
+                total = subTotal - potongan;
+                document.getElementById("potongan").value = potongan;
+                document.getElementById("total").value = total;
+            }
+            function totalPesanan() {
+                for (let i = 0; i < jumlah.length; i++) {
+                    pesanan += jumlah[i];
+                }
+            }
+            function hitungKembali() {
+                bayar = document.getElementById("bayar").value;
+                kembali = bayar - total;
+                document.getElementById("kembali").value = kembali;
+            }
+            function kosongi() {
+                document.getElementById("jumlah").value = "";
+            }
+            function hapus() {
+                document.getElementById("id").value = "";
+            }
+        </script>
+	</div>
+</body>
+</html>

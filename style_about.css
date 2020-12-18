@@ -1,0 +1,144 @@
+/* 
+        Rizkina Hayyuni Putri
+        TI-2D 
+*/
+
+.wrap{
+	background: #C4FAF8;
+	width: 100%;
+	margin: 10px auto;
+}
+
+/*bagian header*/
+.wrap .header{
+	background: #C4FAF8;
+	/*height: 50px;*/
+	padding: 2px 10px;
+}
+.wrap .header h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+/*akhir header*/
+
+/*bagian menu*/
+.wrap .menu{
+	background: #C4FAF8;
+}
+
+.wrap .menu .list {
+    float: left;
+}
+
+.wrap .menu .list ul{
+	padding: 0;
+	margin: 0;
+	background: #C4FAF8;
+	overflow: hidden;
+}
+
+.wrap .menu .list ul li{
+	float: left;
+	list-style-type: none;
+    padding: 10px;
+    padding-left: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    
+}
+.wrap .menu .list ul li a:link {
+    color: #6EB5FF;
+    text-decoration: none;
+}
+.wrap .menu .list ul li a:visited {
+    color: #6EB5FF;
+    text-decoration: none;
+}
+.wrap .menu .list ul li a:hover {
+    color: black;
+    text-decoration: underline;
+}
+.wrap .menu .list ul li a:active {
+    color: black;
+    text-decoration: underline;
+}
+
+.wrap .menu .account {
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+.wrap .menu .account img{
+    width: 100%;
+    height: 100%;
+}
+/*akhir menu*/
+
+.clear{
+	clear: both;
+}
+
+.badan{
+    height: 500px;
+    background: whitesmoke;
+}
+/*bagian sidebar*/
+.wrap .badan .sidebar{
+	background: white;
+	float: left;	
+	width: 40%;
+    height: 100%;
+}
+.gambarcafe {
+    width: 100%;
+    height: 100%;
+}
+
+.wrap .badan .content{
+	/*background: red;*/
+	float: left;
+	height: 100%;
+	width: 60%;	
+}
+
+.wrap .badan .content h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrap .badan .content p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding: 0 50 50 50;
+    text-align: justify;
+}
+
+.wrap .badan .content h2 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0 50 0 50;
+}
+
+.wrap .badan .content h6 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding: 0 50 0 50;
+}
+/*akhir sidebar*/
+
+.wrap .footer{
+	width: 100%;
+    padding: 0;
+    text-align: center;
+}
+.wrap .footer p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    padding: 4px;
+    margin: 0;
+    text-align: center;
+}

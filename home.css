@@ -1,0 +1,29 @@
+.utama {
+    background: blue;
+    width: 100%;
+    margin: 0 auto;
+}
+.utama .header {
+    background: blueviolet;
+    margin: 0;
+}
+.utama .header p {
+    text-align: center;
+    margin: 0;
+    padding-top: 10px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 30pt;
+}
+.utama.menu {
+    background: yellowgreen;
+    width: 300px;
+}
+.utama .clear {
+    clear: both;
+}
+.utama .badan {
+    background: thistle;
+}
+.utama .footer {
+    background: skyblue;
+}

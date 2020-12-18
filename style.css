@@ -1,0 +1,134 @@
+/* 
+        Rizkina Hayyuni Putri
+        TI-2D 
+*/
+
+.wrap{
+	background: #C4FAF8;
+	width: 100%;
+	margin: 10px auto;
+}
+
+/*bagian header*/
+.wrap .header{
+	background: #C4FAF8;
+	/*height: 50px;*/
+	padding: 2px 10px;
+}
+.wrap .header h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+/*akhir header*/
+
+/*bagian menu*/
+.wrap .menu{
+	background: #C4FAF8;
+}
+
+.wrap .menu .list {
+    float: left;
+}
+
+.wrap .menu .list ul{
+	padding: 0;
+	margin: 0;
+	background: #C4FAF8;
+	overflow: hidden;
+}
+
+.wrap .menu .list ul li{
+	float: left;
+	list-style-type: none;
+    padding: 10px;
+    padding-left: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;  
+}
+.wrap .menu .list ul li a:link {
+    color: #6EB5FF;
+    text-decoration: none;
+}
+.wrap .menu .list ul li a:visited {
+    color: #6EB5FF;
+    text-decoration: none;
+}
+.wrap .menu .list ul li a:hover {
+    color: black;
+    text-decoration: underline;
+}
+.wrap .menu .list ul li a:active {
+    color: black;
+    text-decoration: underline;
+}
+
+.wrap .menu .account {
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+.wrap .menu .account img{
+    width: 100%;
+    height: 100%;
+}
+/*akhir menu*/
+
+.clear{
+	clear: both;
+}
+
+.badan{
+    height: 500px;
+    background: url(img/homebg.jpg);
+}
+/*bagian sidebar*/
+.wrap .badan .sidebar{
+	background: white;
+	float: left;	
+	width: 30%;
+    height: 100%;
+    opacity: 0.7;
+}
+.wrap .badan .sidebar h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wrap .badan .sidebar h5 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.wrap .badan .sidebar p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: justify;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.wrap .badan .content{
+	/*background: red;*/
+	float: left;
+	height: 100%;
+	width: 70%;	
+}
+/*akhir sidebar*/
+
+.wrap .footer{
+	width: 100%;
+    padding: 0;
+    text-align: center;
+}
+.wrap .footer p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    padding: 4px;
+    margin: 0;
+    text-align: center;
+}
